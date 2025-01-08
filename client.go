@@ -375,10 +375,7 @@ type ErrorResponse struct {
 
 func (r *ErrorResponse) Error() string {
 	if !r.Success && r.ErrorMessage != "" {
-
-		message := fmt.Sprintf("Success: %t, Message: %s", r.Success, r.ErrorMessage)
-
-		return message
+		return fmt.Sprintf("Success: %t, Message: %s", r.Success, r.ErrorMessage)
 	}
 
 	return ""
@@ -388,7 +385,7 @@ func checkContentType(response *http.Response) error {
 	header := response.Header.Get("Content-Type")
 	contentType := strings.Split(header, ";")[0]
 	if contentType != mediaType {
-		return fmt.Errorf("Expected Content-Type \"%s\", got \"%s\"", mediaType, contentType)
+		return fmt.Errorf("expected content-type \"%s\", got \"%s\"", mediaType, contentType)
 	}
 
 	return nil

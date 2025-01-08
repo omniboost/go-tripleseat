@@ -32,16 +32,16 @@ func (c *Client) NewGetAllPaymentsQueryParams() *GetAllPaymentsQueryParams {
 }
 
 type GetAllPaymentsQueryParams struct {
-	StartDate             Date       `schema:"start_date,omitempty"`
-	EndDate               Date       `schema:"end_date,omitempty"`
-	IncludeCategoryTotals CustomBool `schema:"include_category_totals,omitempty"`
+	StartDate             Date         `schema:"start_date,omitempty"`
+	EndDate               Date         `schema:"end_date,omitempty"`
+	IncludeCategoryTotals BoolToNumber `schema:"include_category_totals,omitempty"`
 }
 
 func (p GetAllPaymentsQueryParams) ToURLValues() (url.Values, error) {
 	encoder := utils.NewSchemaEncoder()
 	encoder.RegisterEncoder(Date{}, utils.EncodeSchemaMarshaler)
 	encoder.RegisterEncoder(DateTime{}, utils.EncodeSchemaMarshaler)
-	encoder.RegisterEncoder(CustomBool(false), utils.EncodeSchemaMarshaler)
+	encoder.RegisterEncoder(BoolToNumber(false), utils.EncodeSchemaMarshaler)
 	params := url.Values{}
 
 	err := encoder.Encode(p, params)

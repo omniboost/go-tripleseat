@@ -125,9 +125,9 @@ func (f *StringInt) UnmarshalJSON(text []byte) (err error) {
 	return nil
 }
 
-type CustomBool bool
+type BoolToNumber bool
 
-func (b CustomBool) MarshalSchema() string {
+func (b BoolToNumber) MarshalSchema() string {
 	if b {
 		return "1"
 	}

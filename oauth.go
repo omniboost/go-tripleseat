@@ -16,7 +16,6 @@ const (
 	oauthStateString     = ""
 	authorizationTimeout = 60 * time.Second
 	tokenTimeout         = 5 * time.Second
-	defaultTokenExpiry   = 1 * time.Hour // Default token expiry time
 )
 
 type Oauth2Config struct {
