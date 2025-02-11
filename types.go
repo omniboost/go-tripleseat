@@ -117,12 +117,12 @@ type CustomFields struct {
 	Value               string `json:"value,omitempty"`
 }
 type CategoryTotals struct {
-	Name  string `json:"name,omitempty"`
-	Total string `json:"total,omitempty"`
+	Name  string      `json:"name,omitempty"`
+	Total StringFloat `json:"total,omitempty"`
 }
 type BillingTotals struct {
-	Name  string `json:"name,omitempty"`
-	Total string `json:"total,omitempty"`
+	Name  string      `json:"name,omitempty"`
+	Total StringFloat `json:"total,omitempty"`
 }
 type SelectedLeadSources struct {
 	LeadSourceID    any `json:"lead_source_id,omitempty"`
@@ -212,8 +212,8 @@ type Booking struct {
 	Status                 string          `json:"status,omitempty"`
 	TotalEventActualAmount StringFloat     `json:"total_event_actual_amount,omitempty"`
 	TotalActualAmount      StringFloat     `json:"total_actual_amount,omitempty"`
-	TotalEventGrandTotal   string          `json:"total_event_grand_total,omitempty"`
-	TotalGrandTotal        string          `json:"total_grand_total,omitempty"`
+	TotalEventGrandTotal   StringFloat     `json:"total_event_grand_total,omitempty"`
+	TotalGrandTotal        StringFloat     `json:"total_grand_total,omitempty"`
 	PostAs                 string          `json:"post_as,omitempty"`
 	UpdatedBy              int             `json:"updated_by,omitempty"`
 	CreatedBy              int             `json:"created_by,omitempty"`
@@ -275,8 +275,8 @@ type Event struct {
 	DepositAmount                StringFloat           `json:"deposit_amount,omitempty"`
 	RentalFee                    string                `json:"rental_fee,omitempty"`
 	ActualAmount                 StringFloat           `json:"actual_amount,omitempty"`
-	GrandTotal                   string                `json:"grand_total,omitempty"`
-	AmountDue                    string                `json:"amount_due,omitempty"`
+	GrandTotal                   StringFloat           `json:"grand_total,omitempty"`
+	AmountDue                    StringFloat           `json:"amount_due,omitempty"`
 	Description                  string                `json:"description,omitempty"`
 	ContactID                    int                   `json:"contact_id,omitempty"`
 	AccountID                    int                   `json:"account_id,omitempty"`
