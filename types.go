@@ -376,6 +376,6 @@ type DataRefunds struct {
 	RefundedAt            string      `json:"refunded_at,omitempty"`
 	RefundAmount          StringFloat `json:"refund_amount,omitempty"`
 	RefundReason          string      `json:"refund_reason,omitempty"`
-	UserID                int         `json:"user_id,omitempty"`
+	UserID                string      `json:"user_id,omitempty"`
 	Reference             string      `json:"reference,omitempty"`
 }
