@@ -4,8 +4,6 @@ go 1.23.2
 
 require (
 	github.com/gorilla/schema v1.1.0
-	github.com/joefitzgerald/passwordcredentials v0.2.0
-	github.com/pkg/errors v0.9.1
 	golang.org/x/oauth2 v0.11.0
 	gopkg.in/guregu/null.v3 v3.5.0
 )
