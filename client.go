@@ -42,7 +42,10 @@ func NewClient(httpClient *http.Client) *Client {
 	}
 
 	client.SetBaseURL(BaseURL)
-	client.SetDebug(true)
+	// Debug is off by default: when enabled, Do() dumps full requests and
+	// responses (including Authorization bearer tokens and customer/payment
+	// data) via httputil. Call SetDebug(true) deliberately if you need it.
+	client.SetDebug(false)
 	client.SetUserAgent(userAgent)
 	client.SetMediaType(mediaType)
 	client.SetCharset(charset)

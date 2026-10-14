@@ -33,7 +33,10 @@ func (c *Client) NewGetBookingByIdQueryParams() *GetBookingByIdQueryParams {
 }
 
 type GetBookingByIdQueryParams struct {
-	ShowFinancials bool `schema:"show_financials,omitempty"`
+	// The current Tripleseat OpenAPI spec names this query parameter
+	// "show_financial" (singular). The Go field keeps its existing name for
+	// source compatibility; only the wire tag was corrected.
+	ShowFinancials bool `schema:"show_financial,omitempty"`
 }
 
 func (p GetBookingByIdQueryParams) ToURLValues() (url.Values, error) {

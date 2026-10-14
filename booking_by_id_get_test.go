@@ -7,6 +7,7 @@ import (
 )
 
 func TestGetBookingByIdRequest(t *testing.T) {
+	requireLiveClient(t)
 	req := client.NewGetBookingByIdRequest()
 	req.PathParams().BookingID = 42946736
 	req.QueryParams().ShowFinancials = true

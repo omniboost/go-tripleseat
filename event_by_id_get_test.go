@@ -7,6 +7,7 @@ import (
 )
 
 func TestGetEventByIdRequest(t *testing.T) {
+	requireLiveClient(t)
 	req := client.NewGetEventByIdRequest()
 	req.PathParams().EventID = 45103683
 	req.QueryParams().ShowFinancials = true

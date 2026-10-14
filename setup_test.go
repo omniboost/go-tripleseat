@@ -22,6 +22,13 @@ func TestMain(m *testing.M) {
 	tokenURL := os.Getenv("TRIPLESEAT_TOKEN_URL")
 	refreshToken := os.Getenv("TRIPLESEAT_REFRESH_TOKEN")
 
+	// Without credentials, leave the shared client nil so the live API tests
+	// skip (see requireLiveClient) instead of making real network calls. The
+	// offline httptest-based tests build their own clients and do not use this.
+	if clientID == "" {
+		os.Exit(m.Run())
+	}
+
 	var httpClient *http.Client
 
 	switch authType {
@@ -50,8 +57,18 @@ func TestMain(m *testing.M) {
 	}
 
 	client = tripleseat.NewClient(httpClient)
-	client.SetDebug(true)
 	client.SetDisallowUnknownFields(true)
 
-	m.Run()
+	os.Exit(m.Run())
+}
+
+// requireLiveClient skips a test unless live Tripleseat credentials were
+// provided via the TRIPLESEAT_* environment variables. This keeps `go test`
+// offline and green by default; the live tests print real API responses and
+// should only run against an authorized account.
+func requireLiveClient(t *testing.T) {
+	t.Helper()
+	if client == nil {
+		t.Skip("set TRIPLESEAT_CLIENT_ID (and related TRIPLESEAT_* vars) to run live API tests")
+	}
 }

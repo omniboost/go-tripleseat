@@ -10,6 +10,7 @@ import (
 )
 
 func TestGetAllPaymentsRequest(t *testing.T) {
+	requireLiveClient(t)
 	req := client.NewGetAllPaymentsRequest()
 	req.QueryParams().StartDate = tripleseat.Date{time.Date(2024, 12, 12, 0, 0, 0, 0, time.UTC)}
 	req.QueryParams().EndDate = tripleseat.Date{time.Date(2024, 12, 12, 0, 0, 0, 0, time.UTC)}
